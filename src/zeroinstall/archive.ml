@@ -163,7 +163,7 @@ let extract_tar config ~dstdir ?extract ~compression archive =
         let unxz = U.find_in_path system "unxz" |? lazy (
           Lazy.force share_dir +/ "0install.net" +/ "unxz"
         ) in ["--use-compress-program=" ^ unxz]
-    | Zstd -> ["--use-compress-program=" ^ unzstd]
+    | Zstd -> ["--use-compress-program=unzstd"]
     | Uncompressed -> [] end @
 
     begin match extract with
